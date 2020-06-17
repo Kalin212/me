@@ -86,7 +86,7 @@ def not_number_rejector(message):
             print (str(give_me_number_only) + ' is in fact ... an integer!')    
             return give_me_number_only
         except Exception as e:
-            print ((give_me) + ' is in fact ... NOT an integer!')
+            print (give_me + ' is in fact ... NOT an integer!')
 
 
 def super_asker(low, high):
