@@ -54,12 +54,13 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
+
     #WORKING CODE
     stubborn_number_input = int(input('enter a number: '))
     while not(low < stubborn_number_input < high):
-        if stubborn_number_input < low:
+        if stubborn_number_input <= low:
             print ('try a higher number')
-        if stubborn_number_input > high:
+        if stubborn_number_input >= high:
             print ('try a lower number')
         if stubborn_number_input > low and stubborn_number_input < high:
             print ('you got the number') 
@@ -79,14 +80,12 @@ def not_number_rejector(message):
     """
 
     number_only = False
-    while number_only == False:
-        give_me = input('enter a number: ')
-        try: 
-            give_me_number_only = int(give_me)
-            print (str(give_me_number_only) + ' is in fact ... an integer!')    
-            return give_me_number_only
+    while type(number_only) is not int:
+        try:
+            number_only = int(input('Enter an integer only: '))
         except Exception as e:
-            print (give_me + ' is in fact ... NOT an integer!')
+            print ('Incorrect Format')
+    return number_only
 
 
 def super_asker(low, high):
@@ -97,7 +96,33 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+    super_number = False
+    while type(super_number) is not int:
+        try:
+            super_number = int(input('enter a number: '))
+        except Exception as e:
+            print ('incorrect format')
+    while not(low < super_number < high):
+        if super_number <= low:
+            print ('try a higher number')
+            super_number = False
+            while type(super_number) is not int:
+                try:
+                    super_number = int(input('enter a number: '))
+                except Exception as e:
+                    print ('incorrect format')
+        if super_number >= high:
+            print ('try a lower number')
+            super_number = False
+            while type(super_number) is not int:
+                try:
+                    super_number = int(input('enter a number: '))
+                except Exception as e:
+                    print ('incorrect format')
+        if super_number > low and super_number < high:
+            print ('you got the number') 
+            return super_number  
+    return super_number
 
 
 if __name__ == "__main__":
