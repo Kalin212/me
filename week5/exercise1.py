@@ -45,11 +45,13 @@ def do_bunch_of_bad_things():
     yet_another_hyp = 40 ** 2 + 30 ** 2
     print(yet_another_hyp)
 
-
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    pass
+    for i in range(start, stop - 1, -1):
+        response = (message + " {}".format(i))
+        print(response)
+    print(completion_message)
 
 
 # TRIANGLES
@@ -62,16 +64,21 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    pass
+    import math
+    hypotenuse = math.sqrt((base ** 2) + (height ** 2))
+    return(hypotenuse)
 
 
 def calculate_area(base, height):
-    pass
+    area = 0.5 * base * height
+    return (area)
 
 
 def calculate_perimeter(base, height):
-    pass
-
+    import math
+    hypotenuse = math.sqrt((base ** 2) + (height ** 2))
+    perimeter = base + height + hypotenuse
+    return (perimeter)
 
 def calculate_aspect(base, height):
     pass
